@@ -1,39 +1,34 @@
-"use Strict"
+"use Strict";
 
-// cálculos do gasolina
+const calcular = () => {
 
-function calculaGasolina() {
+    //transforma as strings capturadas em valores
+  const precoGasolina = parseFloat(document.getElementById("precoGasolina").value);
+  const consumoGasolina = parseFloat(document.getElementById("consumoGasolina").value);
+  const precoAlcool = parseFloat(document.getElementById("precoAlcool").value);
+  const consumoAlcool = parseFloat(document.getElementById("consumoAlcool").value);
 
-    let precoKm = 0
-    let precoGasolina = 5.89
-    let consumoGasolina = 36
+    //verifica se existe algum campo vazio
+  if (isNaN(precoGasolina) || isNaN(consumoGasolina) || isNaN(precoAlcool) || isNaN(consumoAlcool)) {
+    alert('Preencha todos os campos com números válidos')
+  }
 
-    precoKm = (precoGasolina / consumoGasolina)
-    console.log(precoKm)
-    return precoKm
+    //Calcula os custos por km
+  let custoGasolina = precoGasolina / consumoGasolina;
+  let custoAlcool = precoAlcool / consumoAlcool;
 
-}
+  console.log(custoGasolina);
+  console.log(custoAlcool);
 
-let resultadoGasolina = calculaGasolina()
+    //determina a mensagem que o usuário irá receber
+  let retornaMensagem;
 
+  if (custoGasolina < custoAlcool) {
+    retornaMensagem = `A gasolina é mais vantajoso. (R$ ${custoGasolina.toFixed(2)}/km)`;
+  } else {
+    retornaMensagem = `O álcool é mais vantajoso. (R$ ${custoAlcool.toFixed(2)}/km)`;
+  }
 
-// cálculos do álcool
-
-function calculaAlcool() {
-
-    let precoKm = 0
-    let precoAlcool = 4.00
-    let consumoAlcool = 25
-
-    precoKm = (precoAlcool / consumoAlcool)
-    console.log(precoKm)
-    return precoKm
-
-}
-
-let resultadoAlcool = calculaAlcool()
-
-
-// calcula o mais barato
-
-let resuladoFinal = (resultadoGasolina < resultadoAlcool ? console.log("É melhor colocar gasolina") : console.log("É melhor colocar álcool"));
+    //exibe a mensagem ao usuário
+  document.getElementById('resultado').textContent = retornaMensagem
+};

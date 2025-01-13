@@ -24,9 +24,9 @@ const calcular = () => {
   let retornaMensagem;
 
   if (custoGasolina < custoAlcool) {
-    retornaMensagem = `A gasolina é mais vantajoso. (R$ ${custoGasolina.toFixed(2)}/km)`;
+    retornaMensagem = `A GASOLINA é mais vantajoso. (R$ ${custoGasolina.toFixed(2)}/km)`;
   } else {
-    retornaMensagem = `O álcool é mais vantajoso. (R$ ${custoAlcool.toFixed(2)}/km)`;
+    retornaMensagem = `O ÁLCOOL é mais vantajoso. (R$ ${custoAlcool.toFixed(2)}/km)`;
   }
 
     //exibe a mensagem ao usuário
